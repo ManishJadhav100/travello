@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travello template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/travel-icon.png' %}"/>
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/contact.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/contact_responsive.css' %}">
+</head>
+<body>
+
+
+<div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+                            <div class="logo"><a href="{% url 'index' %}">Travello</a></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About us</a></li>
+                                    <li><a href="{% url 'news' %}">News</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li>Hello, {{ user.first_name }}</li>
+                                    <li><a href="accounts/logout">Log Out</a></li>
+                                    {% else %}
+                                    <li><a href="accounts/register">Register</a></li>
+                                    <li><a href="accounts/login">Login</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                            <div class="header_phone ml-auto">Call us: +91-8796358797</div>
+                            <!-- Hamburger -->
+
+                            <div class="hamburger ml-auto">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_header d-flex flex-row align-items-center justify-content-start">
+                <div class="menu_logo"><a href="{% url 'index' %}">Travello</a></div>
+                <div class="menu_close_container ml-auto">
+                    <div class="menu_close">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu_content">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About us</a></li>
+                    <li><a href="{% url 'news' %}">News</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li>Hello, {{ user.first_name }}</li>
+                    <li><a href="accounts/logout">Log Out</a></li>
+                    {% else %}
+                    <li><a href="accounts/register">Register</a></li>
+                    <li><a href="accounts/login">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="menu_social">
+                <div class="menu_phone ml-auto">Call us: +91 8796358797</div>
+                <ul class="d-flex flex-row align-items-start justify-content-start">
+                    <li><a href="https://instagram.com/manishjadhavmj" target="_blank"><i class="fa fa-instagram"
+                                                                                          aria-hidden="true"></i></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100009080832361" target="_blank"><i
+                            class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.twitter.com/manishjadhav100" target="_blank"><i class="fa fa-twitter"
+                                                                                             aria-hidden="true"></i></a>
+                    </li>
+                    <li><a href="https://t.me/mjwebhacks" target="_blank"><i class="fa fa-telegram"
+                                                                             aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/manish-jadhav-952b7b7a" target="_blank"><i
+                            class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC82_I7F55b_0Fln-MTcE_tA" target="_blank"><i
+                            class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div align="center">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                <h3> {{ message }} </h3>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="home">
+        <div class="background_image" style="background-image:url({% static 'images/contact.jpg' %})">
+            <div class="home_slider_content_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_slider_content">
+                                <div class="home_title"><h2>Give your Valuable Feedback!</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact -->
+
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+
+                <!-- Get in touch -->
+                <div class="col-lg-6">
+                    <div class="contact_content">
+                        <div class="contact_title">Get in touch with us</div>
+                        <div class="contact_text">
+                            <p>Feel free to ask about your and querry about our website.</p>
+                        </div>
+                        <div class="contact_list">
+                            <ul>
+                                <li>
+                                    <div>address:</div>
+                                    <div>House No. 1056 At Post Kodoli Tal. Dis. Satara - 415004</div>
+                                </li>
+                                <li>
+                                    <div>Mobile:</div>
+                                    <div>+91 8796358797</div>
+                                </li>
+                                <li>
+                                    <div>email:</div>
+                                    <div>manishjadhav100@gmail.com</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="contact_form_container">
+                        <form action="{% url 'contact' %}" method="post" id="contact_form" class="contact_form">
+                            {% csrf_token %}
+                            <div style="margin-bottom: 18px"><input type="email" name="message-email"
+                                                                    class="contact_input contact_input_email inpt"
+                                                                    placeholder="Your Email" required="required">
+                                <div class="input_border"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6" style="margin-bottom: 18px">
+                                    <div><input type="text" name="message-name"
+                                                class="contact_input contact_input_name inpt" placeholder="Your Name"
+                                                required="required">
+                                        <div class="input_border"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><textarea class="contact_textarea contact_input inpt" placeholder="Message"
+                                           name="message" required="required"></textarea>
+                                <div class="input_border" style="bottom:3px"></div>
+                            </div>
+                            <button class="contact_button" type="submit">send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map -->
+
+    <div class="contact_map">
+        <!-- Google Map -->
+        <div class="map">
+            <div id="google_map" class="google_map">
+                <div class="map_container">
+                    <div align="center" data-parallax="scroll" data-speed="0.8">
+                        <iframe
+                                src="https://maps.google.com/maps?q=at%20post%20kodoli%20satara&t=&z=9&ie=UTF8&iwloc=&output=embed"
+                                width="1400" height="600" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="parallax_background parallax-window" data-parallax="scroll"
+             data-image-src="{% static 'images/footer_1.jpg' %}" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row footer_contact_row">
+                <div class="col-xl-10 offset-xl-1">
+                    <div class="row">
+
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="{% static 'images/sign.svg' %}" alt=""></div>
+                                <div class="footer_contact_title">give us a call</div>
+                                <div class="footer_contact_list">
+                                    <ul>
+                                        <li>Office Landline: +44 5567 32 664 567</li>
+                                        <li>Mobile: +91 8796358797</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="{% static 'images/trekking.svg' %}" alt="">
+                                </div>
+                                <div class="footer_contact_title">come & drop by</div>
+                                <div class="footer_contact_list">
+                                    <ul style="max-width:190px">
+                                        <li>House No. 1056 At Post Kodoli Tal. Dis. Satara - 415004</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="{% static 'images/around.svg' %}" alt="">
+                                </div>
+                                <div class="footer_contact_title">send us a message</div>
+                                <div class="footer_contact_list">
+                                    <ul>
+                                        <li>manishjadhav100@gmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/contact.js' %}"></script>
+</body>
+</html>

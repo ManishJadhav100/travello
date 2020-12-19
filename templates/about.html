@@ -1,0 +1,442 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About us</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travello template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/travel-icon.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/about_responsive.css' %)">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/news.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/news_responsive.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+                            <div class="logo"><a href="{% url 'index' %}">Travello</a></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About us</a></li>
+                                    <li><a href="{% url 'news' %}">News</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li>Hello, {{ user.first_name }}</li>
+                                    <li><a href="accounts/logout">Log Out</a></li>
+                                    {% else %}
+                                    <li><a href="accounts/register">Register</a></li>
+                                    <li><a href="accounts/login">Login</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                            <div class="header_phone ml-auto">Call us: +91-8796358797</div>
+                            <!-- Hamburger -->
+
+                            <div class="hamburger ml-auto">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header_social d-flex flex-row align-items-center justify-content-start">
+            <ul class="d-flex flex-row align-items-start justify-content-start">
+                <li><a href="https://instagram.com/manishjadhavmj" target="_blank"><i class="fa fa-instagram"
+                                                                                      aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100009080832361" target="_blank"><i
+                        class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.twitter.com/manishjadhav100" target="_blank"><i class="fa fa-twitter"
+                                                                                         aria-hidden="true"></i></a>
+                </li>
+                <li><a href="https://t.me/mjwebhacks" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/manish-jadhav-952b7b7a" target="_blank"><i
+                        class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UC82_I7F55b_0Fln-MTcE_tA" target="_blank"><i
+                        class="fa fa-youtube" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <div class="menu">
+        <div class="menu_header d-flex flex-row align-items-center justify-content-start">
+            <div class="menu_logo"><a href="{% url 'index' %}">Travello</a></div>
+            <div class="menu_close_container ml-auto">
+                <div class="menu_close">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu_content">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About us</a></li>
+                <li><a href="{% url 'news' %}">News</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li>Hello, {{ user.first_name }}</li>
+                <li><a href="accounts/logout">Log Out</a></li>
+                {% else %}
+                <li><a href="accounts/register">Register</a></li>
+                <li><a href="accounts/login">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="menu_social">
+            <div class="menu_phone ml-auto">Call us: +91 8796358797</div>
+            <ul class="d-flex flex-row align-items-start justify-content-start">
+                <li><a href="https://instagram.com/manishjadhavmj" target="_blank"><i class="fa fa-instagram"
+                                                                                      aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100009080832361" target="_blank"><i
+                        class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.twitter.com/manishjadhav100" target="_blank"><i class="fa fa-twitter"
+                                                                                         aria-hidden="true"></i></a>
+                </li>
+                <li><a href="https://t.me/mjwebhacks" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/manish-jadhav-952b7b7a" target="_blank"><i
+                        class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UC82_I7F55b_0Fln-MTcE_tA" target="_blank"><i
+                        class="fa fa-youtube" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="background_image" style="background-image:url({% static 'images/about.jpg' %})">
+            <div class="home_slider_content_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_slider_content">
+                                <div class="home_title"><h2>Travel to live, Live to travel.</h2></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search -->
+
+
+    <!-- About -->
+
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_subtitle">simply amazing places</div>
+                    <div class="section_title"><h2>A few words about us</h2></div>
+                </div>
+            </div>
+            <div class="row about_row">
+                <div class="col-lg-6">
+                    <div class="about_content">
+                        <div class="text_highlight">This is about page of Travello. I made this website using python
+                            django framework and in backend I have used django admin database. This website is hosted on
+                            Heroku free server.
+                        </div>
+                        <div class="about_text">
+                            <p>So what is Heroku?
+                                Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to
+                                deploy, manage, and scale modern apps. Our platform is elegant, flexible, and easy to
+                                use, offering developers the simplest path to getting their apps to market.
+
+                                Heroku is fully managed, giving developers the freedom to focus on their core product
+                                without the distraction of maintaining servers, hardware, or infrastructure. The Heroku
+                                experience provides services, tools, workflows, and polyglot support—all designed to
+                                enhance developer productivity.
+                                Share this informative post thank you!
+                                #pythonprogramming</p>
+                        </div>
+                        <div class="button about_button"><a href="https://www.heroku.com" target="_blank">read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6q">
+                    <div class="about_image"><img src="{% static 'images/profile.jpg' %}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Milestones -->
+
+    <div class="milestones">
+        <div class="container">
+            <div class="row">
+
+                <!-- Milestone -->
+                <div class="col-lg-3 milestone_col">
+                    <div class="milestone text-center">
+                        <div class="milestone_icon"><img src="{% static 'images/mountain.svg' %}" alt=""></div>
+                        <div class="milestone_counter" data-end-value="17">0</div>
+                        <div class="milestone_text">Online Courses</div>
+                    </div>
+                </div>
+
+                <!-- Milestone -->
+                <div class="col-lg-3 milestone_col">
+                    <div class="milestone text-center">
+                        <div class="milestone_icon"><img src="{% static 'images/island.svg' %}" alt=""></div>
+                        <div class="milestone_counter" data-end-value="213">0</div>
+                        <div class="milestone_text">Students</div>
+                    </div>
+                </div>
+
+                <!-- Milestone -->
+                <div class="col-lg-3 milestone_col">
+                    <div class="milestone text-center">
+                        <div class="milestone_icon"><img src="{% static 'images/camera.svg' %}" alt=""></div>
+                        <div class="milestone_counter" data-end-value="11923">0</div>
+                        <div class="milestone_text">Teachers</div>
+                    </div>
+                </div>
+
+                <!-- Milestone -->
+                <div class="col-lg-3 milestone_col">
+                    <div class="milestone text-center">
+                        <div class="milestone_icon"><img src="{% static 'images/boat.svg' %}" alt=""></div>
+                        <div class="milestone_counter" data-end-value="15">0</div>
+                        <div class="milestone_text">Countries</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+
+    <div class="why">
+        <div class="parallax_background parallax-window" data-parallax="scroll"
+             data-image-src="{% static 'images/why.jpg' %}" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_subtitle">simply amazing places</div>
+                    <div class="section_title"><h2>Why choose us?</h2></div>
+                </div>
+            </div>
+            <div class="row why_row">
+
+                <!-- Why item -->
+                <div class="col-lg-4 why_col">
+                    <div class="why_item">
+                        <div class="why_image">
+                            <img src="{% static 'images/why_1.jpg' %}" alt="">
+                            <div class="why_icon d-flex flex-column align-items-center justify-content-center">
+                                <img src="{% static 'images/why_1.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="why_content text-center">
+                            <div class="why_title">Fast Services</div>
+                            <div class="why_text">
+                                <p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why item -->
+                <div class="col-lg-4 why_col">
+                    <div class="why_item">
+                        <div class="why_image">
+                            <img src="{% static 'images/why_2.jpg' %}" alt="">
+                            <div class="why_icon d-flex flex-column align-items-center justify-content-center">
+                                <img src="{% static 'images/why_2.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="why_content text-center">
+                            <div class="why_title">Great Team</div>
+                            <div class="why_text">
+                                <p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why item -->
+                <div class="col-lg-4 why_col">
+                    <div class="why_item">
+                        <div class="why_image">
+                            <img src="{% static 'images/why_3.jpg' %}" alt="">
+                            <div class="why_icon d-flex flex-column align-items-center justify-content-center">
+                                <img src="{% static 'images/why_3.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="why_content text-center">
+                            <div class="why_title">Best Deals</div>
+                            <div class="why_text">
+                                <p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Team -->
+
+    <div class="team">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_subtitle">simply amazing places</div>
+                    <div class="section_title"><h2>Checkout my other projects</h2></div>
+                </div>
+            </div>
+            <div class="row team_row">
+
+                <!-- Team Item -->
+                <div class="col-xl-4 col-md-6 team_col">
+                    <div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
+                        <div class="team_image"><a href="https://mjwebhacks.com" target="_blank"><img
+                                src="{% static 'images/wordpress.png' %}" alt=""></a></div>
+                        <div class="team_content">
+                            <div class="team_title"><a href="https://mjwebhacks.com" target="_blank">MJ WebHacks</a>
+                            </div>
+                            <div class="team_text">
+                                <p>This is my own hosted website made by using wordpress.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Item -->
+                <div class="col-xl-4 col-md-6 team_col">
+                    <div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
+                        <div class="team_image"><a href="http://mightyblog.pythonanywhere.com/" target="_blank"><img
+                                src="{% static 'images/mightyblog.jpg' %}" alt=""></a></div>
+                        <div class="team_content">
+                            <div class="team_title"><a href="http://mightyblog.pythonanywhere.com/" target="_blank">Mighty
+                                Blog</a></div>
+                            <div class="team_text">
+                                <p>This website is made by using python Flask framework.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Item -->
+                <div class="col-xl-4 col-md-6 team_col">
+                    <div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
+                        <div class="team_image"><a href="http://www.kingblog.pythonanywhere.com/" target="_blank"><img
+                                src="{% static 'images/django.png' %}" alt=""></a></div>
+                        <div class="team_content">
+                            <div class="team_title"><a href="http://www.kingblog.pythonanywhere.com/" target="_blank">Dental
+                                Website</a></div>
+                            <div class="team_text">
+                                <p>This website is made by using python Django framework and PostgreSQL.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="parallax_background parallax-window" data-parallax="scroll"
+             data-image-src="{% static 'images/footer_1.jpg' %}" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row footer_contact_row">
+                <div class="col-xl-10 offset-xl-1">
+                    <div class="row">
+
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="{% static 'images/sign.svg' %}" alt=""></div>
+                                <div class="footer_contact_title">give us a call</div>
+                                <div class="footer_contact_list">
+                                    <ul>
+                                        <li>Office Landline: +44 5567 32 664 567</li>
+                                        <li>Mobile: +91 8796358797</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="{% static 'images/trekking.svg' %}" alt="">
+                                </div>
+                                <div class="footer_contact_title">come & drop by</div>
+                                <div class="footer_contact_list">
+                                    <ul style="max-width:190px">
+                                        <li>House No. 1056 At Post Kodoli Tal. Dis. Satara - 415004</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="{% static 'images/around.svg' %}" alt="">
+                                </div>
+                                <div class="footer_contact_title">send us a message</div>
+                                <div class="footer_contact_list">
+                                    <ul>
+                                        <li>manishjadhav100@gmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/about.js' %}"></script>
+</body>
+</html>

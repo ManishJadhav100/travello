@@ -1,0 +1,1 @@
+web: gunicorn travello.wsgi --log-file -
